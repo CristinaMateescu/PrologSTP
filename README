@@ -1,0 +1,37 @@
+README - MATEESCU CRISTINA - RAMONA - 321CB - Tema_Prolog
+
+Predicat stp(Retea, Root, Edges) : 
+
+	Pasii urmati pentru a ajunge la rezultat sunt : 
+			
+		- folosim predicatul retea() pentru a prelucra Reteaua in Prioritati si Muchii
+
+		- folosim predicatul root() pentru a gasi nodul Root : 
+		  se parcurge lista de prioritati si se extrage perechea (nod, pr) cu prioritatea 
+		  cea mai mica
+
+		- folosim predicatul alege() pentru a construi arborele; predicatul aplica o serie de
+		  predicate ce au semnificatiile : 
+			
+			* mda ( muchii de ales ) - extrage din lista initiala a muchiilor doar acele
+			muchii astfel incat unul dintre capetele muchiei sa apartina arborelui partial
+			construit pana la acel punct
+			* mcc ( muchii cu costuri ) - parcurge lista de muchii candidat si aduna la costul
+			muchiei, costul nodului din arborele partial 
+			* min_p ( minimum priority ) - parcurge lista cu costuri actualizate si alege 
+			o muchie astfel incat costul sau sa fie minim, tinandu-se cont, pentru costuri
+			egale, de prioritatea minima
+			* actualizeaza arborele partial : lista de noduri cu costurile lor, aplica predicatul
+			in continuare pana nu se mai pot alege muchii
+		
+
+BONUS
+Predicat drum( Retea, Src, Dest, Root, Edges, Path ) : 
+		
+	 Pasii urmati pentru a ajunge la rezultat sunt : 
+			
+			* aplica predicatul stp() pentru a obtine arborele partial
+			* folosind predicatele retea() si noduri() - prelucreaza lista de noduri a arborelui
+			* aplica predicatul path pentru a gasi un drum intre nodul Src si nodul Dest in arbore
+			! predicatele path, member, edge au fost discutate la curs
+
